@@ -1,19 +1,33 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from "react";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+import firebase from "firebase/app";
+import 'firebase/auth'
+import 'firebase/database'
+import 'firebase/firestore'
+import "firebase/storage";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+import rootReducers from "./reducers";
+import SwitchNavigation from "./navigation/SwitchNavigation";
+import firebaseConfig from "./config/firebase";
+
+firebase.initializeApp(firebaseConfig);
+firebase.firestore()
+firebase.storage();
+
+const middleware = applyMiddleware(thunk, logger);
+const store = createStore(rootReducers, middleware);
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <SwitchNavigation />
+      </Provider>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
