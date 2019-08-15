@@ -20,12 +20,13 @@ class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Profile </Text>
+         <Text>Profile </Text>
         {this.props.auth.photo && <Image source={{ uri: this.props.auth.photo }} style={{ width: 50, height: 50 }} />}
         <Text>{this.props.auth.username}</Text>
         <Text>{this.props.auth.email} </Text>
         <Text>{this.props.auth.bio} </Text>
         {/* <Text>{this.props.auth.createdAt} </Text> */}
+        <Button title={"Edit Profile"} onPress={() => this.props.navigation.navigate("Edit")} />
         <Button title={"Logout"} onPress={() => this.logout()} />
       </View>
     );

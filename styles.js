@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+const { width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     // justifyContent: "center"
-    marginTop: 150
+    marginTop: 50
   },
   signupContainer: {
     flex: 1,
@@ -29,14 +30,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFAB40",
     padding: 10,
     marginTop: 20,
-    width: "85%",
+    width: "85%"
   },
   facebookButton: {
     alignItems: "center",
     backgroundColor: "#64B5F6",
     padding: 10,
     marginTop: 20,
-    width: "85%",
+    width: "85%"
   },
   buttonText: {
     color: "white",
@@ -47,7 +48,40 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginTop: 20
   },
-
+  postPhoto: {
+    width: width,
+    height: 250
+  },
+  roundImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    margin: 8
+  },
+  row: {
+    flexDirection: "row"
+  },
+  center: {
+    alignItems: "center",
+    justifyContent: "space-between"
+  },
+  border: {
+    width: '85%',
+    margin: 10,
+    padding: 15,
+    fontSize: 16,
+    borderColor: '#d3d3d3',
+    borderBottomWidth: 1,
+    textAlign: 'center'
+  },
+  cameraButton: {
+    height: 100, 
+    width: 100,
+    borderRadius: 50,
+    alignSelf: 'center',
+    backgroundColor: '#fff',
+    marginBottom: 50
+  },
 });
 
 export default styles;

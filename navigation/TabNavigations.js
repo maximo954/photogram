@@ -2,57 +2,64 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 
-import Home from "../screens/Home";
-import Search from "../screens/Search";
-import Upload from "../screens/Upload";
-import Activity from "../screens/Activity";
-import Profile from "../screens/Profile";
+import {
+  HomeNavigation,
+  SearchNavigation,
+  PostNavigation,
+  ActivityNavigation,
+  ProfileNavigation
+} from "./StackNavigation";
 
 const TabNavigator = createBottomTabNavigator({
   Home: {
-    screen: Home,
+    screen: HomeNavigation,
     navigationOptions: {
       tabBarLabel: " ",
-      tabBarIcon: ({focused}) => <Ionicons style={{marginTop: 8}} name="ios-home" size={28} />
+      tabBarIcon: ({ focused }) => (
+        <Ionicons style={{ marginTop: 8 }} name="ios-home" size={28} />
+      )
     }
   },
   Search: {
-    screen: Search,
+    screen: SearchNavigation,
     navigationOptions: {
       tabBarLabel: " ",
-      tabBarIcon: ({focused}) => <Ionicons style={{marginTop: 8}} name="ios-search" size={28} />
+      tabBarIcon: ({ focused }) => (
+        <Ionicons style={{ marginTop: 8 }} name="ios-search" size={28} />
+      )
     }
   },
-  Upload: {
-    screen: Upload,
+  Post: {
+    screen: PostNavigation,
     navigationOptions: {
       tabBarLabel: " ",
-      tabBarIcon: ({focused}) => (
-        <Ionicons
-        style={{marginTop: 8}} name="ios-add-circle" size={28} />
+      tabBarIcon: ({ focused }) => (
+        <Ionicons style={{ marginTop: 8 }} name="ios-add-circle" size={28} />
       )
     }
   },
   Activity: {
-    screen: Activity,
+    screen: ActivityNavigation,
     navigationOptions: {
       tabBarLabel: " ",
-      tabBarIcon: ({focused}) => (
+      tabBarIcon: ({ focused }) => (
         <Ionicons
-        style={{marginTop: 8}} name={ focused ? "ios-heart" : "ios-heart-empty"} size={28} />
+          style={{ marginTop: 8 }}
+          name={focused ? "ios-heart" : "ios-heart-empty"}
+          size={28}
+        />
       )
     }
   },
   Profile: {
-    screen: Profile,
+    screen: ProfileNavigation,
     navigationOptions: {
       tabBarLabel: " ",
-      tabBarIcon: ({focused}) => (
-        <Ionicons
-          name="ios-person" size={28} style={{marginTop: 8}}/>
+      tabBarIcon: ({ focused }) => (
+        <Ionicons name="ios-person" size={28} style={{ marginTop: 8 }} />
       )
     }
-  },
+  }
 });
 
 export default createAppContainer(TabNavigator);

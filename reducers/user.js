@@ -1,7 +1,6 @@
 export const auth = (state = {}, action) => {
   switch (action.type) {
     case "LOGIN":
-      console.log(action.payload)
       return action.payload;
     case "UPDATE_EMAIL":
       return {
